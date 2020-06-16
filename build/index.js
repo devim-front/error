@@ -14,3 +14,5 @@ __exportStar(require("./CustomError"), exports);
 __exportStar(require("./UnknownError"), exports);
 __exportStar(require("./NotSupportedError"), exports);
 __exportStar(require("./NotImplementedError"), exports);
+__exportStar(require("./UnreachableError"), exports);
+__exportStar(require("./ExpectationError"), exports);

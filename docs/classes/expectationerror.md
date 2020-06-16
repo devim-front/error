@@ -11,8 +11,6 @@
 
   ↳ **ExpectationError**
 
-  ↳ [ArgumentError](argumenterror.md)
-
 ## Index
 
 ### Constructors

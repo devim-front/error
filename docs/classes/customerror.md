@@ -19,6 +19,8 @@
 
   ↳ [UnknownError](unknownerror.md)
 
+  ↳ [UnreachableError](unreachableerror.md)
+
 ## Index
 
 ### Constructors
