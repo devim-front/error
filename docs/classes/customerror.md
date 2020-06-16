@@ -11,6 +11,12 @@
 
   ↳ **CustomError**
 
+  ↳ [ExpectationError](expectationerror.md)
+
+  ↳ [NotImplementedError](notimplementederror.md)
+
+  ↳ [NotSupportedError](notsupportederror.md)
+
   ↳ [UnknownError](unknownerror.md)
 
 ## Index
