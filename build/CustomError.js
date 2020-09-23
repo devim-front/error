@@ -30,6 +30,8 @@ var CustomError = /** @class */ (function (_super) {
     function CustomError(name, message) {
         var _this = _super.call(this, message) || this;
         _this.name = name;
+        // fix for https://github.com/Microsoft/TypeScript-wiki/blob/master/Breaking-Changes.md#extending-built-ins-like-error-array-and-map-may-no-longer-work
+        Object.setPrototypeOf(_this, CustomError.prototype);
         return _this;
     }
     return CustomError;
