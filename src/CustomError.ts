@@ -14,7 +14,14 @@ export class CustomError extends Error {
     super(message);
     this.name = name;
 
-    // fix for https://github.com/Microsoft/TypeScript-wiki/blob/master/Breaking-Changes.md#extending-built-ins-like-error-array-and-map-may-no-longer-work
-    Object.setPrototypeOf(this, CustomError.prototype);
+    // https://github.com/Microsoft/TypeScript-wiki/blob/master/Breaking-Changes.md#extending-built-ins-like-error-array-and-map-may-no-longer-work
+    const proto = new.target.prototype;
+
+    if (Object.setPrototypeOf != null) {
+      Object.setPrototypeOf(this, proto);
+    } else {
+      // @ts-ignore
+      this.__proto__ = proto;
+    }
   }
 }

@@ -20,4 +20,20 @@ describe('CustomError', () => {
       }
     });
   });
+
+  describe('instanceof', () => {
+    it('should checks correctly', () => {
+      class TestError extends CustomError {
+        public constructor() {
+          super('TestError', 'foo');
+        }
+      }
+
+      try {
+        throw new TestError();
+      } catch (error) {
+        assert.isTrue(error instanceof TestError);
+      }
+    });
+  });
 });

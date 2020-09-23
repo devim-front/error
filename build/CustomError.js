@@ -28,10 +28,18 @@ var CustomError = /** @class */ (function (_super) {
      * @param message Текст сообщения об ошибке.
      */
     function CustomError(name, message) {
+        var _newTarget = this.constructor;
         var _this = _super.call(this, message) || this;
         _this.name = name;
-        // fix for https://github.com/Microsoft/TypeScript-wiki/blob/master/Breaking-Changes.md#extending-built-ins-like-error-array-and-map-may-no-longer-work
-        Object.setPrototypeOf(_this, CustomError.prototype);
+        // https://github.com/Microsoft/TypeScript-wiki/blob/master/Breaking-Changes.md#extending-built-ins-like-error-array-and-map-may-no-longer-work
+        var proto = _newTarget.prototype;
+        if (Object.setPrototypeOf != null) {
+            Object.setPrototypeOf(_this, proto);
+        }
+        else {
+            // @ts-ignore
+            _this.__proto__ = proto;
+        }
         return _this;
     }
     return CustomError;
