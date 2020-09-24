@@ -23,5 +23,9 @@ export class CustomError extends Error {
       // @ts-ignore
       this.__proto__ = proto;
     }
+
+    if (Error.captureStackTrace != null) {
+      Error.captureStackTrace(this, this.constructor);
+    }
   }
 }

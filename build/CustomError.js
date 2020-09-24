@@ -40,6 +40,9 @@ var CustomError = /** @class */ (function (_super) {
             // @ts-ignore
             _this.__proto__ = proto;
         }
+        if (Error.captureStackTrace != null) {
+            Error.captureStackTrace(_this, _this.constructor);
+        }
         return _this;
     }
     return CustomError;
